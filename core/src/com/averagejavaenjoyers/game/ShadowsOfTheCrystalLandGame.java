@@ -1,31 +1,36 @@
 package com.averagejavaenjoyers.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.averagejavaenjoyers.game.screen.MainMenuScreen;
+import com.badlogic.gdx.Game;
 
-public class ShadowsOfTheCrystalLandGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+import java.util.Optional;
+
+
+public class ShadowsOfTheCrystalLandGame extends Game {
 	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+	private static ShadowsOfTheCrystalLandGame game;
+	
+	private ShadowsOfTheCrystalLandGame() {
 	}
-
-	@Override
-	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+	
+	public static ShadowsOfTheCrystalLandGame instance() {
+		return Optional.ofNullable(game).orElseGet(() -> {
+			game = new ShadowsOfTheCrystalLandGame();
+			return game;
+		});
 	}
 	
 	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
+	public void create() {
+		setScreen(new MainMenuScreen());
+	}
+	
+	@Override
+	public void render() {
+	}
+	
+	@Override
+	public void dispose() {
+	
 	}
 }

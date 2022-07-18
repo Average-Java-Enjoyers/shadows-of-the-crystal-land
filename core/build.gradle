@@ -1,6 +1,10 @@
-sourceCompatibility = 1.7
+sourceCompatibility = JavaVersion.VERSION_17
+dependencies {
+    implementation 'org.jetbrains:annotations-java5:23.0.0'
+    implementation 'org.projectlombok:lombok:1.18.24'
+}
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.java.srcDirs = ["src/"]
 
 eclipse.project.name = appName + "-core"
