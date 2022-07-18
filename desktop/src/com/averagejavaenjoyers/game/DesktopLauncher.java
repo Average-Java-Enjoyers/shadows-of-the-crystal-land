@@ -14,7 +14,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setWindowedMode(SCREEN_WIDTH, SCREEN_HEIGHT);
-		config.setTitle("Shadows Of The Crystal Land");
-		new Lwjgl3Application(new ShadowsOfTheCrystalLandGame(), config);
+		config.setTitle("Shadows of the Crystal Land");
+		new Lwjgl3Application(ShadowsOfTheCrystalLandGame.instance(), config);
 	}
 }
