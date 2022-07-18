@@ -1,5 +1,6 @@
-package com.averagejavaenjoyers.game;
+package com.averagejavaenjoyers.game.screen;
 
+import com.averagejavaenjoyers.game.SingleScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Cursor;
@@ -17,8 +18,7 @@ import java.util.ArrayList;
 import static com.averagejavaenjoyers.game.ShadowsOfTheCrystalLandGame.SCREEN_HEIGHT;
 import static com.averagejavaenjoyers.game.ShadowsOfTheCrystalLandGame.SCREEN_WIDTH;
 
-public class StartMenuScreen implements Screen {
-    final com.averagejavaenjoyers.game.ShadowsOfTheCrystalLandGame game;
+public class StartMenuScreen extends CustomScreen {
     OrthographicCamera camera;
 
     final int buttonNumber = 5;
@@ -96,20 +96,19 @@ public class StartMenuScreen implements Screen {
         }
 
     }
-    public StartMenuScreen(final com.averagejavaenjoyers.game.ShadowsOfTheCrystalLandGame game){
+    public StartMenuScreen(){
         createButtons();
         createFonts();
-        this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, SCREEN_WIDTH, SCREEN_HEIGHT);
         camera.update();
     }
-
+    
     @Override
     public void show() {
-
+    
     }
-
+    
     @Override
     public void render(float delta) {
         ScreenUtils.clear(0,0,0.2f,1);
@@ -129,30 +128,5 @@ public class StartMenuScreen implements Screen {
         }*/
 
         detectTouchOnButton();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
-    }
-
-    @Override
-    public void dispose() {
-
     }
 }

@@ -1,17 +1,19 @@
 package com.averagejavaenjoyers.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.averagejavaenjoyers.game.screen.StartMenuScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.util.Optional;
 
 public class ShadowsOfTheCrystalLandGame extends Game {
+	
+	private static ShadowsOfTheCrystalLandGame game;
 	public static int SCREEN_WIDTH = 1600;
 	public static int SCREEN_HEIGHT = 900;
 
@@ -24,7 +26,17 @@ public class ShadowsOfTheCrystalLandGame extends Game {
 	public FreeTypeFontGenerator fontGenerator;
 	public FreeTypeFontGenerator.FreeTypeFontParameter fontParameter;
 	public BitmapFont font;
-
+	
+	private ShadowsOfTheCrystalLandGame() {
+	}
+	
+	public static ShadowsOfTheCrystalLandGame instance() {
+		return Optional.ofNullable(game).orElseGet(() -> {
+			game = new ShadowsOfTheCrystalLandGame();
+			return game;
+		});
+	}
+	
 	@Override
 	public void create () {
 		//background = new Sprite(new Texture(Gdx.files.internal("Padia_pixeled.png"), SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -37,13 +49,9 @@ public class ShadowsOfTheCrystalLandGame extends Game {
 		fontParameter.borderColor.set(Color.BLACK);
 		fontParameter.borderWidth = 5;
 		font = fontGenerator.generateFont(fontParameter);
-		this.setScreen(new StartMenuScreen(this));
+		setScreen(new StartMenuScreen());
 	}
-
-	@Override
-	public void render () {
-		super.render();
-	}
+	
 
 	@Override
 	public void dispose () {
