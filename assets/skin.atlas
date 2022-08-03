@@ -1,0 +1,34 @@
+
+skin.png
+size: 2048, 2048
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Minecraft
+  rotate: false
+  xy: 1, 617
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+SteamPunk
+  rotate: false
+  xy: 1, 103
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+button
+  rotate: false
+  xy: 515, 1029
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1
+testButton
+  rotate: false
+  xy: 1, 1
+  size: 200, 100
+  orig: 200, 100
+  offset: 0, 0
+  index: -1

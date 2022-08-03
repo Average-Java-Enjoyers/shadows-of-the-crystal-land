@@ -1,0 +1,52 @@
+{
+com.badlogic.gdx.graphics.g2d.BitmapFont: {
+	Minecraft: {
+		file: Minecraft.fnt
+	}
+	SteamPunk: {
+		file: SteamPunk.fnt
+	}
+}
+com.badlogic.gdx.graphics.Color: {
+	orange: {
+		r: 1
+		g: 0.7137255
+		b: 0.23529412
+		a: 1
+	}
+	white: {
+		r: 1
+		g: 1
+		b: 1
+		a: 1
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton$ImageTextButtonStyle: {
+	default: {
+		imageUp: button
+		imageDown: button
+		imageOver: button
+		font: Minecraft
+		fontColor: orange
+		downFontColor: white
+		overFontColor: white
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+	default: {
+		font: SteamPunk
+		fontColor: white
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.TextTooltip$TextTooltipStyle: {
+	default: {
+		label: default
+	}
+}
+com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
+	default: {
+		background: testButton
+		titleFont: Minecraft
+	}
+}
+}
