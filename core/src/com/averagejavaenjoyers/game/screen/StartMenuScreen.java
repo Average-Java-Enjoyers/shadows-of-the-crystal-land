@@ -74,10 +74,10 @@ public class StartMenuScreen extends CustomScreen {
         table = new Table();
         table.setPosition(SCREEN_WIDTH * 4/5, SCREEN_HEIGHT - 200);
 
-        skin = new Skin(Gdx.files.internal("skin.json"));
+        skin = new Skin(Gdx.files.internal("Skins/StartMenu/StartMenuSkin.json"));
 
         title = new Label("Shadow Of The Crystal Lands", skin);
-        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("SteamwreckBold-e3Xp.ttf"));
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Fonts/SteamwreckBold-e3Xp.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 100;
         fontParameter.borderColor.set(Color.BLACK);
@@ -158,7 +158,7 @@ public class StartMenuScreen extends CustomScreen {
     public void render(float delta) {
 
         stage.getBatch().begin();
-        stage.getBatch().draw(new Texture(Gdx.files.internal("Padia_pixeled.png")), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        stage.getBatch().draw(new Texture(Gdx.files.internal("Images/Padia_pixeled.png")), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         stage.getBatch().end();
         stage.draw();
 

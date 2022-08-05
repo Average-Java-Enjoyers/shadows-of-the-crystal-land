@@ -39,7 +39,7 @@ public class LevelScreen extends CustomScreen {
         gamePort = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, gameCam);     //do skalowania ekranu
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("sandBox.tmx");    //ladowanie mapy zrobionej w tiled
+        map = mapLoader.load("Levels/SandBox/sandBox.tmx");    //ladowanie mapy zrobionej w tiled
         renderer = new OrthogonalTiledMapRenderer(map);    //pokazanie mapy
         gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);   //ustawienie pozycji kamery na srodek okna
 
