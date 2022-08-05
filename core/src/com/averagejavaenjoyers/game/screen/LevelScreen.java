@@ -39,7 +39,7 @@ public class LevelScreen extends CustomScreen {
         gamePort = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, gameCam);     //do skalowania ekranu
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("map.tmx");    //ladowanie mapy zrobionej w tiled
+        map = mapLoader.load("sandBox.tmx");    //ladowanie mapy zrobionej w tiled
         renderer = new OrthogonalTiledMapRenderer(map);    //pokazanie mapy
         gameCam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);   //ustawienie pozycji kamery na srodek okna
 
@@ -55,55 +55,18 @@ public class LevelScreen extends CustomScreen {
 
         //przejscie petla po warstwach 0-n dol-gora
         //tworzenie rur
-        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+        for(int i = 1; i <= 6 ; i++) {
+            for (MapObject object : map.getLayers().get(i).getObjects().getByType(RectangleMapObject.class)) {
+                Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            bdef.type = BodyDef.BodyType.StaticBody;    //obiekty nieruchome
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
-            body = world.createBody(bdef);  //tworzenie ciala o konkretnych atrybutach
+                bdef.type = BodyDef.BodyType.StaticBody;    //obiekty nieruchome
+                bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
+                body = world.createBody(bdef);  //tworzenie ciala o konkretnych atrybutach
 
-            shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //tworzenie cegiel
-        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;    //obiekty nieruchome
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
-            body = world.createBody(bdef);  //tworzenie ciala o konkretnych atrybutach
-
-            shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //tworzenie monet
-        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;    //obiekty nieruchome
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
-            body = world.createBody(bdef);  //tworzenie ciala o konkretnych atrybutach
-
-            shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-
-        //tworzenie ziemi
-        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;    //obiekty nieruchome
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
-            body = world.createBody(bdef);  //tworzenie ciala o konkretnych atrybutach
-
-            shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
+                shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
+                fdef.shape = shape;
+                body.createFixture(fdef);
+            }
         }
     }
 
